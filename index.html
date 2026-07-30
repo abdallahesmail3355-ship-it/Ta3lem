@@ -39,7 +39,7 @@
             --radius-sm: 12px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --font: 'Tajawal', sans-serif;
-            --header-height: 68px;
+            --header-height: 72px;
         }
 
         * {
@@ -195,7 +195,7 @@
         }
 
         /* ============================================================
-           NAVIGATION - FIXED
+           NAVIGATION - FIXED WITH LARGER NAME
            ============================================================ */
         .navbar {
             background: var(--white);
@@ -226,10 +226,10 @@
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: var(--primary);
-            gap: 6px;
+            gap: 8px;
             text-decoration: none;
             white-space: nowrap;
             flex-shrink: 0;
@@ -237,21 +237,27 @@
 
         .logo i {
             color: var(--secondary);
-            font-size: 1.4rem;
+            font-size: 1.6rem;
         }
 
         .logo span {
             color: var(--secondary);
         }
 
+        .logo .teacher-name-large {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 900;
+        }
+
         .logo .teacher-badge {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             background: var(--secondary);
             color: var(--white);
-            padding: 2px 8px;
+            padding: 2px 10px;
             border-radius: 50px;
             font-weight: 700;
-            margin-right: 4px;
+            margin-right: 6px;
         }
 
         /* Nav Links */
@@ -869,7 +875,7 @@
         }
 
         /* ============================================================
-           PRICING / PACKAGES
+           PRICING / PACKAGES - MODIFIED (No Trial, Pay Per Session)
            ============================================================ */
         .pricing {
             padding: 50px 0;
@@ -879,13 +885,15 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .pricing-card {
             text-align: center;
-            padding: 25px 18px;
+            padding: 30px 20px;
             border-radius: var(--radius);
             background: var(--white);
             transition: var(--transition);
@@ -902,6 +910,11 @@
             border-color: var(--secondary);
             background: var(--white);
             position: relative;
+            transform: scale(1.02);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.02) translateY(-8px);
         }
 
         .pricing-card.featured::before {
@@ -920,7 +933,7 @@
         }
 
         .pricing-card .price {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--primary);
             margin: 8px 0;
@@ -932,6 +945,12 @@
             color: var(--gray);
         }
 
+        .pricing-card .price-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
         .pricing-card ul {
             list-style: none;
             padding: 0;
@@ -939,7 +958,7 @@
         }
 
         .pricing-card ul li {
-            padding: 4px 0;
+            padding: 5px 0;
             font-size: 0.9rem;
             color: var(--gray);
             display: flex;
@@ -956,14 +975,14 @@
         .btn-pricing {
             background: var(--primary);
             color: var(--white);
-            padding: 8px 24px;
+            padding: 10px 28px;
             border-radius: 50px;
             border: none;
             cursor: pointer;
             font-family: var(--font);
             font-weight: 700;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .btn-pricing:hover {
@@ -1268,7 +1287,7 @@
         }
 
         /* ============================================================
-           LOCATION SECTION - NEW
+           LOCATION SECTION
            ============================================================ */
         .location {
             padding: 50px 0;
@@ -1467,7 +1486,7 @@
         }
 
         /* ============================================================
-           RESPONSIVE DESIGN
+           RESPONSIVE DESIGN - IMPROVED
            ============================================================ */
         @media (max-width: 992px) {
             .hero-container {
@@ -1529,11 +1548,23 @@
             .float-icon {
                 display: none;
             }
+
+            .pricing-grid {
+                max-width: 100%;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-8px);
+            }
         }
 
         @media (max-width: 768px) {
             :root {
-                --header-height: 58px;
+                --header-height: 62px;
             }
 
             .nav-container {
@@ -1542,9 +1573,12 @@
             }
 
             .logo {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             .logo i {
+                font-size: 1.2rem;
+            }
+            .logo .teacher-name-large {
                 font-size: 1.1rem;
             }
             .logo .teacher-badge {
@@ -1658,6 +1692,14 @@
                 margin: 0 auto;
             }
 
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
             .booking-wrapper {
                 padding: 18px 12px;
             }
@@ -1710,17 +1752,11 @@
             .hero-image svg {
                 max-width: 85%;
             }
-
-            .pricing-card.featured::before {
-                font-size: 0.6rem;
-                padding: 1px 12px;
-                top: -10px;
-            }
         }
 
         @media (max-width: 480px) {
             :root {
-                --header-height: 52px;
+                --header-height: 56px;
             }
 
             .nav-container {
@@ -1729,9 +1765,12 @@
             }
 
             .logo {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
             .logo i {
+                font-size: 1rem;
+            }
+            .logo .teacher-name-large {
                 font-size: 0.9rem;
             }
             .logo .teacher-badge {
@@ -1848,7 +1887,7 @@
                 padding: 18px 14px;
             }
             .pricing-card .price {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .testimonial-card {
@@ -1883,6 +1922,10 @@
             }
             .location-map i {
                 font-size: 3rem;
+            }
+
+            .pricing-grid {
+                max-width: 100%;
             }
         }
 
@@ -1935,13 +1978,13 @@
     </button>
 
     <!-- ============================================================
-    NAVIGATION
+    NAVIGATION - WITH LARGER NAME
     ============================================================ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">
                 <i class="fas fa-chalkboard-teacher"></i>
-                أ. ولاء <span>مصطفى</span>
+                <span class="teacher-name-large">أ. ولاء مصطفى</span>
                 <span class="teacher-badge">عربي &amp; رياضيات</span>
             </a>
 
@@ -2020,26 +2063,20 @@
                         </linearGradient>
                     </defs>
                     <rect width="500" height="400" rx="30" fill="url(#grad1)" />
-                    <!-- Teacher character -->
                     <circle cx="180" cy="180" r="50" fill="#f8bbd0" opacity="0.9"/>
                     <rect x="150" y="230" width="60" height="80" rx="10" fill="#6a1b9a" opacity="0.2"/>
                     <rect x="160" y="310" width="12" height="60" rx="4" fill="#5d4037" opacity="0.3"/>
                     <rect x="188" y="310" width="12" height="60" rx="4" fill="#5d4037" opacity="0.3"/>
-                    <!-- Board -->
                     <rect x="290" y="100" width="160" height="120" rx="8" fill="#1a237e" opacity="0.1"/>
                     <rect x="295" y="105" width="150" height="110" rx="4" fill="#e8eaf6" opacity="0.3"/>
-                    <!-- Board content -->
                     <text x="320" y="145" font-size="16" fill="#6a1b9a" opacity="0.5">عربي + رياضيات</text>
                     <text x="315" y="175" font-size="12" fill="#6a1b9a" opacity="0.3">تأسيس + تقوية</text>
                     <text x="315" y="200" font-size="11" fill="#6a1b9a" opacity="0.2">مع أ. ولاء</text>
-                    <!-- Arabic letters decoration -->
                     <text x="50" y="350" font-size="28" fill="#6a1b9a" opacity="0.08">أ ب ت</text>
                     <text x="400" y="370" font-size="28" fill="#ff6f00" opacity="0.06">١ ٢ ٣</text>
-                    <!-- Books -->
                     <rect x="70" y="320" width="20" height="30" rx="2" fill="#6a1b9a" opacity="0.15"/>
                     <rect x="75" y="315" width="20" height="30" rx="2" fill="#8e24aa" opacity="0.12"/>
                     <rect x="80" y="310" width="20" height="30" rx="2" fill="#4a148c" opacity="0.1"/>
-                    <!-- Stars -->
                     <text x="30" y="60" font-size="24" opacity="0.2">✦</text>
                     <text x="460" y="350" font-size="20" opacity="0.15">✦</text>
                     <text x="50" y="370" font-size="16" opacity="0.1">✦</text>
@@ -2185,47 +2222,29 @@
     </section>
 
     <!-- ============================================================
-    PRICING SECTION
+    PRICING SECTION - MODIFIED (No Trial, Pay Per Session)
     ============================================================ -->
     <section class="pricing" id="pricing">
         <div class="container">
             <h2 class="section-title scroll-reveal">
                 <i class="fas fa-tags"></i>
-                باقات الحصص
+                نظام الدفع بالحصة
             </h2>
-            <p class="section-subtitle scroll-reveal">اختر الباقة المناسبة لابنك</p>
+            <p class="section-subtitle scroll-reveal">اختر الباقة المناسبة لابنك - الدفع بعد كل حصة</p>
             <div class="pricing-grid">
                 <div class="pricing-card scroll-reveal">
-                    <h4>تجريبي</h4>
-                    <div class="price">مجاناً</div>
+                    <h4>حصة واحدة</h4>
+                    <div class="price">$$$ <span>ج</span></div>
+                    <div class="price-note">دفع بعد الحصة</div>
                     <ul>
-                        <li><i class="fas fa-check"></i> حصة تجريبية واحدة</li>
-                        <li><i class="fas fa-check"></i> تقييم مستوى الطالب</li>
-                        <li><i class="fas fa-check"></i> خطة مقترحة للدراسة</li>
-                    </ul>
-                    <button class="btn-pricing" onclick="bookTrial()">احجز التجريبي</button>
-                </div>
-                <div class="pricing-card featured scroll-reveal">
-                    <h4>شهري</h4>
-                    <div class="price">750 <span>ج/شهر</span></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> 4 حصص أسبوعياً</li>
-                        <li><i class="fas fa-check"></i> متابعة مستمرة</li>
-                        <li><i class="fas fa-check"></i> مراجعة دورية</li>
-                        <li><i class="fas fa-check"></i> حل واجبات</li>
-                    </ul>
-                    <button class="btn-pricing" onclick="bookMonthly()">احجز الشهري</button>
-                </div>
-                <div class="pricing-card scroll-reveal">
-                    <h4>حصة منفصلة</h4>
-                    <div class="price">200 <span>ج/حصة</span></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> حصة واحدة</li>
+                        <li><i class="fas fa-check"></i> حصة واحدة في مادة واحدة</li>
                         <li><i class="fas fa-check"></i> شرح موضوع محدد</li>
                         <li><i class="fas fa-check"></i> مرونة في الموعد</li>
+                        <li><i class="fas fa-check"></i> متابعة بعد الحصة</li>
                     </ul>
                     <button class="btn-pricing" onclick="bookSingle()">احجز الحصة</button>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -2288,7 +2307,7 @@
     </section>
 
     <!-- ============================================================
-    LOCATION SECTION - NEW FROM IMAGE
+    LOCATION SECTION
     ============================================================ -->
     <section class="location" id="location">
         <div class="container">
@@ -2319,7 +2338,7 @@
                     <div class="map-badge">
                         <i class="fas fa-location-dot"></i> فيصل - الكوم الأخضر
                     </div>
-                    <p>ش محمد يوسف - بجوار مدرسة الكوم الأخضر</p>
+                    <p>ش محمد يوسف    </p>
                     <p style="font-size:0.8rem; color:var(--gray);">
                         <i class="fas fa-clock"></i> الحضور بموعد مسبق
                     </p>
@@ -2374,6 +2393,15 @@
                         <p>يمكنك التواصل مباشرة عبر واتساب من خلال نموذج الحجز، أو الاتصال على الرقم 01103132019.</p>
                     </div>
                 </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>ما هو نظام الدفع؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>الدفع يكون بعد كل حصة مباشرة، ولا يوجد التزام بحصص تجريبية   .</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2394,7 +2422,7 @@
                         <div><i class="fas fa-check-circle"></i> حجز سريع وسهل</div>
                         <div><i class="fas fa-check-circle"></i> تواصل مباشر عبر واتساب</div>
                         <div><i class="fas fa-check-circle"></i> مواعيد مرنة تناسبك</div>
-                        <div><i class="fas fa-check-circle"></i> حصة تجريبية مجانية</div>
+                        <div><i class="fas fa-check-circle"></i> دفع بعد كل حصة</div>
                     </div>
                 </div>
                 <div class="booking-form-wrapper">
@@ -2441,6 +2469,7 @@
                             <span class="error-message" id="subjectError"></span>
                         </div>
 
+                        
                         <div class="form-group">
                             <label for="phoneNumber">
                                 <i class="fas fa-phone"></i> رقم الهاتف
@@ -2665,6 +2694,7 @@
             const parentName = document.getElementById('parentName').value.trim();
             const grade = document.getElementById('classGrade').value;
             const subject = document.getElementById('subject').value;
+            const sessions = document.getElementById('sessionsCount').value;
             const phone = document.getElementById('phoneNumber').value.trim();
             const message = document.getElementById('message').value.trim();
             
@@ -2672,6 +2702,7 @@
             const parentError = document.getElementById('parentError');
             const gradeError = document.getElementById('gradeError');
             const subjectError = document.getElementById('subjectError');
+            const sessionsError = document.getElementById('sessionsError');
             const phoneError = document.getElementById('phoneError');
             const successMsg = document.getElementById('successMessage');
 
@@ -2679,6 +2710,7 @@
             parentError.textContent = '';
             gradeError.textContent = '';
             subjectError.textContent = '';
+            sessionsError.textContent = '';
             phoneError.textContent = '';
             successMsg.classList.remove('show');
 
@@ -2704,6 +2736,11 @@
                 isValid = false;
             }
 
+            if (sessions === '') {
+                sessionsError.textContent = 'يرجى اختيار عدد الحصص';
+                isValid = false;
+            }
+
             if (phone === '' || phone.length < 10) {
                 phoneError.textContent = 'يرجى إدخال رقم هاتف صحيح (10 أرقام)';
                 isValid = false;
@@ -2713,7 +2750,6 @@
 
             successMsg.classList.add('show');
 
-            // استخدام رقم واتساب من الصورة
             const teacherPhone = '201143742503';
             let whatsappMessage = `مرحباً أستاذة ولاء مصطفى 🌟\n\n` +
                             `📌 طلب حجز حصة خصوصية\n\n` +
@@ -2721,6 +2757,7 @@
                             `👤 ولي الأمر: ${parentName}\n` +
                             `📚 الصف الدراسي: ${grade}\n` +
                             `📖 المادة: ${subject}\n` +
+                             
                             `📞 رقم الهاتف: ${phone}`;
 
             if (message !== '') {
@@ -2761,22 +2798,43 @@
         // ============================================================
         // PRICING BUTTONS
         // ============================================================
-        function bookTrial() {
+        function bookSingle() {
             document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            const select = document.getElementById('sessionsCount');
+            for (let option of select.options) {
+                if (option.value === '1 حصة') {
+                    option.selected = true;
+                    break;
+                }
+            }
             const msg = document.getElementById('message');
-            msg.value = 'أرغب في حجز حصة تجريبية مجانية.';
+            msg.value = 'أرغب في حجز حصة واحدة ($$$ ج).';
         }
 
         function bookMonthly() {
             document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            const select = document.getElementById('sessionsCount');
+            for (let option of select.options) {
+                if (option.value === '4 حصص') {
+                    option.selected = true;
+                    break;
+                }
+            }
             const msg = document.getElementById('message');
-            msg.value = 'أرغب في الاشتراك في الباقة الشهرية.';
+            msg.value = 'أرغب في حجز باقة 4 حصص (750 ج - توفير 50 ج).';
         }
 
-        function bookSingle() {
+        function bookEight() {
             document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            const select = document.getElementById('sessionsCount');
+            for (let option of select.options) {
+                if (option.value === '8 حصص') {
+                    option.selected = true;
+                    break;
+                }
+            }
             const msg = document.getElementById('message');
-            msg.value = 'أرغب في حجز حصة منفصلة.';
+            msg.value = 'أرغب في حجز باقة 8 حصص (1400 ج - توفير 200 ج).';
         }
 
         // ============================================================
@@ -2806,6 +2864,7 @@
         console.log('📚 دروس خصوصية في اللغة العربية والرياضيات');
         console.log('📱 واتساب: 01143742503');
         console.log('📍 فيصل - الكوم الأخضر، ش محمد يوسف');
+        console.log('💰 الدفع بعد كل حصة - لا توجد حصص تجريبية');
     </script>
 </body>
 </html>
